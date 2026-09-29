@@ -1,0 +1,102 @@
+STEIN FLOW TRAINER - TERMS OF USE
+
+DRAFT, 29 September 2026. Not yet reviewed by a lawyer.
+
+These terms are between you and the maker of Stein Flow ("the Licensor"). By downloading or using
+the Trainer you accept them. If you do not accept them, do not download or use the Trainer.
+
+1. WHAT THEY COVER
+
+"The Trainer" is the Stein Flow training bundle: the stein_train program and its libraries, the
+stein_notebook Workbench, the starting weights packed for it, and the notebooks and scripts of the
+stein-flow-trainer repository that fetch and run them - but not the components named in section 6,
+which come under their own licences.
+
+"Your Data" is what you bring: your pictures, labels and datasets.
+
+"A Trained Model" is a model the Trainer produces, in the form the Trainer gives it.
+
+2. WHAT YOU MAY DO
+
+You may use the Trainer, free of charge, to train models from Your Data - to learn, teach and do
+research, and for commercial purposes too, whether you are a person or an organisation.
+
+Access to the Trainer may need a code the Licensor gives out. While it does, you may use the
+Trainer only with a code you were given, and you may not pass that code on.
+
+3. TRAINED MODELS
+
+A Trained Model may be used only with Stein Flow, under Stein Flow's own licence agreement; its use
+in the work of a business is a use that agreement says needs a Stein Flow licence key. You may not
+extract a Trained Model's weights, convert it, or use it outside Stein Flow, nor help anyone do so.
+
+4. WHAT YOU MAY NOT DO
+
+Except where these terms or the law expressly allow it, you may not:
+
+  (a) copy, sell, rent, lend, sublicense or distribute the Trainer, or offer it to others as a
+      service;
+  (b) reverse engineer, decompile or disassemble the Trainer, or try to derive its source code;
+  (c) remove, hide or get around its access code, the protection on Trained Models, or the limits
+      in section 3;
+  (d) remove or change any notice of copyright, trademark or licence in the Trainer.
+
+5. YOUR DATA AND PRIVACY
+
+Your Data remains yours. The Licensor claims no right in it, and the Trainer sends nothing about you
+or your work to the Licensor or anyone else: no telemetry and no usage statistics.
+
+The Trainer runs where you run it. On Google Colab, Your Data and the Trainer are on Google's
+machines, under Google's terms, which are yours to accept; on your own computer they stay there.
+Downloading the Trainer is a request to GitHub, under GitHub's terms.
+
+6. OTHER PEOPLE'S COMPONENTS
+
+The Trainer includes components made by others, each under its own licence. Their notices and
+licence texts travel with it (NOTICES/, and share/stein_dnn_darknet/pretrained/NOTICES/ with the
+starting weights). Those licences govern those components, and nothing in these terms limits what
+they give you.
+
+Qt, CUDA, cuDNN, Python and the rest of the system the Trainer runs on are not part of it: they come
+from the machine or service you run it on, under their own terms.
+
+7. AI RESULTS
+
+A Trained Model, and every detection or classification it makes, can be wrong. You are responsible
+for checking it before relying on it, and for any decision taken on it. Do not use a Trained Model
+where a wrong result could cause death, injury or serious damage unless you have validated it for
+that use and have independent safeguards.
+
+8. NO WARRANTY
+
+The Trainer is provided "as is" and "as available", without warranty of any kind, express or
+implied, including fitness for a particular purpose, merchantability and non-infringement, to the
+fullest extent the law allows. It may change or stop being available at any time.
+
+9. LIMITATION OF LIABILITY
+
+To the fullest extent the law allows, the Licensor is not liable for any indirect, incidental,
+special or consequential loss, or for loss of data, profits, production or business, arising from
+the Trainer or these terms. The Licensor's total liability is limited to one thousand Thai baht.
+Nothing here limits liability that cannot be limited by law.
+
+10. ENDING
+
+These terms last until they end. They end at once if you break them; you must then stop using the
+Trainer and delete your copies of it. Sections 3, 4, 5 and 7 to 13 continue after they end.
+
+11. EXPORT
+
+You must comply with the export control and sanctions laws that apply to you, to the Trainer and to
+the machines and services you run it on.
+
+12. LAW
+
+These terms are governed by the laws of the Kingdom of Thailand. The courts of Thailand have
+jurisdiction over any dispute arising from them.
+
+13. THE WHOLE AGREEMENT
+
+These terms are the whole agreement between you and the Licensor about the Trainer. Stein Flow's
+own licence agreement governs Stein Flow, and the use of a Trained Model in it. If a part of these
+terms cannot be enforced, the rest still applies.

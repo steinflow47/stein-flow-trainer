@@ -14,11 +14,15 @@ Detect.
 In Stein Flow: the labeler's **More → Export for notebook (.zip)**. Open a notebook above, run the
 **Setup** cell, then the **Workbench** cell, and upload that zip.
 
+**Use of the trainer is subject to [TERMS.txt](TERMS.txt)** - free for learning and for commercial
+training; a model it trains is for use in Stein Flow.
+
 ## What is here
 
 - `Train_Detect.ipynb` — the Colab notebook (Setup cell + the Workbench).
 - `bootstrap.sh` — what the Setup cell runs on Colab: apt Qt 5, the `stein_train` bundle, a
   CUDA/cuDNN check. It downloads the prebuilt binary bundle from this repo's **Releases**.
+- `TERMS.txt` — the terms of use (also packed with the trainer).
 - `images/` — the logo and icons the notebooks show.
 
 The trainer needs Colab's GPU (Runtime → Change runtime type → GPU). It was built for Ubuntu 24.04,
