@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-# Set Colab up for the Stein Flow trainer: apt Qt, the stein_train bundle, and a check that Colab's
-# CUDA/cuDNN match what the binary needs. Run from the notebook's first cell. It only installs and
-# downloads; the notebook then sets the environment in Python (env from a script does not cross into
-# the kernel). Idempotent - a second run is quick.
+# Set Colab up for the Stein Flow trainer: apt Qt, the stein_train bundle, its starting weights, and
+# the CUDA 13 runtime it was built with. Run by the notebook. Idempotent - a second run is quick.
 set -euo pipefail
 
 REPO="${REPO:-steinflow47/stein-flow-trainer}"
@@ -40,17 +38,26 @@ else
     echo "  already present"
 fi
 
-echo "• CUDA / cuDNN"
-# The binary was built against CUDA 13 and cuDNN 9. Colab usually ships a CUDA; if its major differs,
-# the GPU libraries below show as "not found" and training would fall to no card. Say so plainly.
-missing=$(LD_LIBRARY_PATH="$B/lib" ldd "$B/bin/stein_train" 2>/dev/null | awk '/not found/{print "    "$1}' || true)
-if [ -n "$missing" ]; then
-    echo "  some libraries are missing on this Colab (GPU may be unavailable):"
-    echo "$missing"
-    echo "  most are CUDA 13 / cuDNN 9. If Colab has a different CUDA, tell the owner - bootstrap will"
-    echo "  install a matching toolkit here (not wired yet: it is a large download)."
+echo "• CUDA 13 runtime (NVIDIA, from PyPI)"
+# The trainer is built with CUDA 13.3, cuBLAS 13.6, cuRAND 10.4 and cuDNN 9.26; Colab carries CUDA 12.
+# NVIDIA's own wheels, pinned to those versions, go in a folder of their own (not Colab's Python, so
+# nothing of PyTorch's CUDA 12 changes), and their libraries are linked into the bundle's lib/, which
+# the trainer looks in first.
+NV="$ROOT/nvidia"
+if [ ! -e "$B/lib/libcudart.so.13" ]; then
+    python3 -m pip install -q --no-deps --disable-pip-version-check --target "$NV" \
+        nvidia-cuda-runtime==13.3.29 nvidia-cublas==13.6.0.2 nvidia-curand==10.4.3.29 \
+        nvidia-cudnn-cu13==9.26.0.51
+    find "$NV" -name 'lib*.so*' | while read -r f; do ln -sf "$f" "$B/lib/$(basename "$f")"; done
+    echo "  installed"
 else
-    echo "  all libraries resolve"
+    echo "  already present"
 fi
 
-echo "ready — the next cell opens the Workbench"
+missing=$(ldd "$B/bin/stein_train" 2>/dev/null | awk '/not found/{print "    "$1}' | sort -u || true)
+if [ -n "$missing" ]; then
+    echo "  libraries the trainer cannot find:"
+    echo "$missing"
+    exit 1
+fi
+echo "ready"
