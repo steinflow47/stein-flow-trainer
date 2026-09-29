@@ -1,0 +1,7 @@
+# Built bundle (large binaries) — lives in a GitHub Release, never in the repo
+*.tar.gz
+/bundle/
+# What Colab / a local run leaves
+stein_work/
+__pycache__/
+.ipynb_checkpoints/
