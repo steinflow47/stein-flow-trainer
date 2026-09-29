@@ -37,8 +37,8 @@ Except where these terms or the law expressly allow it, you may not:
   (a) copy, sell, rent, lend, sublicense or distribute the Trainer, or offer it to others as a
       service;
   (b) reverse engineer, decompile or disassemble the Trainer, or try to derive its source code;
-  (c) remove, hide or get around its access code, the protection on Trained Models, or the limits
-      in section 3;
+  (c) remove, hide or get around its access code or any of its technical limits, or the limits in
+      section 3;
   (d) remove or change any notice of copyright, trademark or licence in the Trainer.
 
 5. YOUR DATA AND PRIVACY
