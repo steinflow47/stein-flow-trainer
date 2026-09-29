@@ -72,11 +72,35 @@ fi
 
 echo "• unpacking"
 mkdir -p "$ROOT"
+# The trainer first (small, and its lib/ is where CUDA is linked in), then the weights and each CUDA
+# wheel side by side. A wheel is a zip: each is unpacked into a folder of its own, so no two
+# unpackers make the same directory at once.
 [ $need_bundle = 1 ] && tar -C "$ROOT" -xzf "$DL/trainer.tar.gz"
 echo "  trainer $(cat "$B/VERSION" 2>/dev/null || echo '?')"
-[ $need_weights = 1 ] && tar -C "$ROOT" -xzf "$DL/weights.tar.gz" && echo "  starting weights"
+upids=(); unames=()
+unpack() {   # unpack <name> <command...>, in the background
+    local name=$1; shift
+    "$@" > "$DL/logs/unpack-$name.log" 2>&1 &
+    upids+=($!); unames+=("$name")
+}
+[ $need_weights = 1 ] && unpack "weights" tar -C "$ROOT" -xzf "$DL/weights.tar.gz"
 if [ $need_cuda = 1 ]; then
-    python3 -m pip install -q --no-deps --no-index --disable-pip-version-check --target "$NV" "$DL"/wheels/*.whl
+    rm -rf "$NV"
+    mkdir -p "$NV"
+    for whl in "$DL"/wheels/*.whl; do
+        name=$(basename "$whl" .whl)
+        if command -v unzip >/dev/null; then unpack "$name" unzip -q -o "$whl" -d "$NV/$name"
+        else unpack "$name" python3 -m zipfile -e "$whl" "$NV/$name"; fi
+    done
+fi
+bad=()
+for i in "${!upids[@]}"; do wait "${upids[$i]}" || bad+=("${unames[$i]}"); done
+if [ ${#bad[@]} -gt 0 ]; then
+    for n in "${bad[@]}"; do echo "--- unpacking $n"; tail -n 15 "$DL/logs/unpack-$n.log"; done
+    exit 1
+fi
+[ $need_weights = 1 ] && echo "  starting weights"
+if [ $need_cuda = 1 ]; then
     find "$NV" -name 'lib*.so*' | while read -r f; do ln -sf "$f" "$B/lib/$(basename "$f")"; done
     echo "  CUDA 13 runtime"
 fi
