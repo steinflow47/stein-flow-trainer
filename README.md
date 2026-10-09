@@ -7,9 +7,11 @@ Label and train for nothing; what you get back — a `.stmd`, `.stmc`, `.stms` o
 
 ## Open in Colab
 
-- **Train Detect** — [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/steinflow47/stein-flow-trainer/blob/main/Train_Detect.ipynb)
-- **Train Classify** — [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/steinflow47/stein-flow-trainer/blob/main/Train_Classify.ipynb)
-- **Train Segment** — [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/steinflow47/stein-flow-trainer/blob/main/Train_Segment.ipynb)
+| Notebook | |
+|---|---|
+| **Train Detect** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/steinflow47/stein-flow-trainer/blob/main/Train_Detect.ipynb) |
+| **Train Classify** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/steinflow47/stein-flow-trainer/blob/main/Train_Classify.ipynb) |
+| **Train Segment** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/steinflow47/stein-flow-trainer/blob/main/Train_Segment.ipynb) |
 
 In Stein Flow: **More → Export for notebook (.zip)** - the labeler's for Train Detect, the Label tab's for
 Train Classify and for Train Segment (its masks and polygons; the architecture you choose says whether it trains a
