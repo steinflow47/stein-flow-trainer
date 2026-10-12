@@ -12,10 +12,12 @@ Label and train for nothing; what you get back — a `.stmd`, `.stmc`, `.stms` o
 | **Train Detect** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/steinflow47/stein-flow-trainer/blob/main/Train_Detect.ipynb) |
 | **Train Classify** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/steinflow47/stein-flow-trainer/blob/main/Train_Classify.ipynb) |
 | **Train Segment** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/steinflow47/stein-flow-trainer/blob/main/Train_Segment.ipynb) |
+| **Train Sound Classify** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/steinflow47/stein-flow-trainer/blob/main/Train_Sound_Classify.ipynb) |
 
 In Stein Flow: **More → Export for notebook (.zip)** - the labeler's for Train Detect, the Label tab's for
 Train Classify and for Train Segment (its masks and polygons; the architecture you choose says whether it trains a
-semantic or an instance segmenter). Open the notebook above, press
+semantic or an instance segmenter), Train Sound Classify's for a sound classifier (a folder of sounds per class). Open
+the notebook above, press
 ▶ (it installs the trainer the first time and opens the Workbench), and choose that zip.
 
 **Use of the trainer is subject to [TERMS.txt](TERMS.txt)** - free for learning and for commercial
@@ -23,7 +25,7 @@ training; a model it trains is for use in Stein Flow.
 
 ## What is here
 
-- `Train_Detect.ipynb`, `Train_Classify.ipynb`, `Train_Segment.ipynb` — the Colab notebooks: one cell that installs the trainer and opens the Workbench.
+- `Train_Detect.ipynb`, `Train_Classify.ipynb`, `Train_Segment.ipynb`, `Train_Sound_Classify.ipynb` — the Colab notebooks: one cell that installs the trainer and opens the Workbench.
 - `bootstrap.sh` — what the notebook runs first on Colab: apt Qt 5, the `stein_train` bundle, a
   CUDA/cuDNN check. It downloads the prebuilt binary bundle from this repo's **Releases**.
 - `TERMS.txt` — the terms of use (also packed with the trainer).
