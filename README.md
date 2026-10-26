@@ -15,8 +15,8 @@ Label and train for nothing; what you get back — a `.stmd`, `.stmc`, `.stms` o
 | **Train Sound** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/steinflow47/stein-flow-trainer/blob/main/Train_Sound.ipynb) |
 | **Train Sound Classify** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/steinflow47/stein-flow-trainer/blob/main/Train_Sound_Classify.ipynb) |
 
-In Stein Flow: **More → Export for notebook (.zip)** - the labeler's for Train Detect, the Label tab's for
-Train Classify and for Train Segment (its masks and polygons; the architecture you choose says whether it trains a
+In Stein Flow, in the Train node's window: **File → Export to zip…** (and **File → Train on Google Colab…** opens
+its notebook here) - Train Detect's for a detector, Train Classify's for a classifier and Train Segment's (its masks and polygons; the architecture you choose says whether it trains a
 semantic or an instance segmenter), Train Sound's for a sound event detector (its sounds and boxes), Train Sound Classify's for a sound classifier (a folder of sounds per class). Open
 the notebook above, press
 ▶ (it installs the trainer the first time and opens the Workbench), and choose that zip.
